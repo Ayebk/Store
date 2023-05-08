@@ -1,0 +1,15 @@
+.mat-expansion-panel-header{
+    font-size: 18px;
+}
+
+.catrgoriesPanel{
+    font-size: 18px;
+}
+
+.catrgoriesPanel:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.fitlersTitle{
+    background-color: #fafafa;
+}

@@ -1,0 +1,18 @@
+<mat-card *ngIf="product" [ngClass]="fullWidthMode ? 'productBoxContainerFullImg' : 'productBoxContainer'" >
+    <div class="productBoxImgContainer">
+        <img  [ngClass]="fullWidthMode ? 'productBoxFullImg' : 'productBoxImg'" src="{{product.image}}"/>
+    </div>
+    <div [ngClass]="{productBoxInfoContainerFullImg : fullWidthMode}"   >
+        <div  [ngClass]="fullWidthMode ? 'productBoxInfoFullImg' : 'productBoxInfo'">
+            <h2>{{product.category}}</h2>
+            <p [ngClass]=" {productBoxInfoTitle : !fullWidthMode} ">{{product.title}}</p>
+            <p *ngIf="fullWidthMode" class="productBoxInfoDesc">{{product.description}}</p>
+        </div>
+        <div  class="productBoxPriceBuy"  >
+            <span> {{product.price | currency}}</span>
+            <button mat-icon-button (click)="onAddToCart()">
+                <mat-icon mat-raised-button color="primary">shopping_cart</mat-icon>
+            </button>
+        </div>
+    </div>
+</mat-card>

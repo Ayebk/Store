@@ -1,0 +1,27 @@
+<mat-sidenav-container class="homeSidenavContainer" [autosize]="true">
+  
+  <mat-sidenav class="homeSidenav"  opened="true" mode="side">
+    <app-filters (showCategory)="onShowCategory($event)"></app-filters>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="homeSidenavSecondFilters">
+    <app-products-header 
+    (columnsCountChange)="onColumnsCountChange($event)"
+    (itemsCountChange)="onItemsCountChange($event)"
+    (sortChange)="onSortChange($event)"
+
+    ></app-products-header>
+      <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight" class="homeSidenavProducts">
+
+        <mat-grid-tile *ngFor="let product of products">
+          <div>
+          <app-product-box class="productBox" 
+          [product] = "product"
+          (addToCart)="onAddToCart($event)"
+          [fullWidthMode]="cols === 1"></app-product-box>
+        </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+</mat-sidenav-content>
+</mat-sidenav-container>
+
